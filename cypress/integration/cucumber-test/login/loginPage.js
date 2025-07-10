@@ -27,7 +27,7 @@ class LoginPage{
     }
 
     //validation message
-    static showErrorMessage() {
+    static showErrorMessage(validation) {
         cy.get(VALIDATIONMESSAGE).contains(validation)
     }
 }
