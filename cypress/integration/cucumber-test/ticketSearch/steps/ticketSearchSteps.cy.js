@@ -1,6 +1,7 @@
 import {Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 import TicketSearchPage from '../pages/ticketSearchPage'
 
+
 Given ('I navigate to the ticket webpage', () => {
     TicketSearchPage.visitTicketSearchPage()
 })

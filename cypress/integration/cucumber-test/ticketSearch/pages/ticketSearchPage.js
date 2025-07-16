@@ -1,27 +1,4 @@
-//import URL from '../e2e/fixtures/global'
-
-// Import Day.js
-const dayjs = require('dayjs');
-
-//locators (could also go in a separate folder)
-const URL = 'https://www.cp.pt/passageiros/en/buy-tickets'
-const departureLoc = 'input[name="textBoxPartida"]'
-const destinationLoc = 'input[name="textBoxChegada"]'
-const departureDate = '#datepicker-first'
-const returnDate = '#datepicker-second'
-const submit = 'input[class="btn btn-primary btn-green pull-right"]'
-const ticketPage = '#travelTerms'
-const cancel = '#exitButton'
-
-//function to find future date
-
-function dateConverter (delay){
-    const unformDate = dayjs().add(parseInt(delay), 'day');
-    const formatedDate = unformDate.format('DD MMMM, YYYY');
-    console.log(formatedDate);
-    return formatedDate
-}
-
+import { URL, departureLoc, destinationLoc, departureDate, returnDate, submit, ticketPage, cancel, dateConverter } from "../../../../fixtures/locators"
 
 //Main page class
 class TicketSearchPage {

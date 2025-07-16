@@ -32,6 +32,7 @@
     "nonGlobalStepDefinitions": true
   },
   "devDependencies": {
-    "@cucumber/cucumber": "^11.3.0"
+    "@cucumber/cucumber": "^11.3.0",
+    "cypress-mochawesome-reporter": "^4.0.0"
   }
 }
