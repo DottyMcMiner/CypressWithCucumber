@@ -9,7 +9,7 @@ module.exports = defineConfig({
     specPattern: "**/*.feature", // Cypress will now look for .feature files
     setupNodeEvents(on, config) {
       on("file:preprocessor", cucumber());
-      require('cypress-mochawesome-reporter/plugin')(on);
+      require('cypress-mochawesome-reporter/plugin')(on); 
     }
   },
 });

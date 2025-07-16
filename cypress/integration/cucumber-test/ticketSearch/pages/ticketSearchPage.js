@@ -1,4 +1,8 @@
-import { URL, departureLoc, destinationLoc, departureDate, returnDate, submit, ticketPage, cancel, dateConverter } from "../../../../fixtures/locators"
+import { URL, departureLoc, destinationLoc, departureDate, returnDate, submit, ticketPage, cancel, actualDates, dateConverterMain, dateConverterResults } from "../../../../fixtures/locators"
+
+// variables to store departure/return dates for future use so we only need to use the get date function once
+var departureDateStorage = ""
+var returnDateStorage = ""
 
 //Main page class
 class TicketSearchPage {
@@ -20,12 +24,14 @@ class TicketSearchPage {
 
     //Enter departure date
     static setDepartureDate (delay) {
-        cy.get(departureDate).clear().type(dateConverter(delay))
+        departureDateStorage = dateConverterMain(delay)
+        cy.get(departureDate).clear().type(departureDateStorage)
     }
 
-    //Enter destination date
+    //Enter return date
     static setReturnDate (delay) {
-        cy.get(returnDate).clear().type(dateConverter(delay))
+        returnDateStorage = dateConverterMain(delay)
+        cy.get(returnDate).clear().type(returnDateStorage)
     }
 
     //Click on submit button
@@ -36,6 +42,8 @@ class TicketSearchPage {
     //Inpect ticket listing page is displayed
     static checkTLPage () {
         cy.get(ticketPage).should('exist')
+        cy.get(actualDates).contains(dateConverterResults(departureDateStorage))
+        cy.get(actualDates).contains(dateConverterResults(returnDateStorage))
     }
 
     //Click on the cancel button
@@ -47,7 +55,6 @@ class TicketSearchPage {
     static checkMain () {
         cy.get(submit).should('exist')
     }
-
 }
 
 export default TicketSearchPage

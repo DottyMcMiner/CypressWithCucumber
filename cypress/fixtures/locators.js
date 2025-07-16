@@ -10,12 +10,18 @@ export const returnDate = '#datepicker-second'
 export const submit = 'input[class="btn btn-primary btn-green pull-right"]'
 export const ticketPage = '#travelTerms'
 export const cancel = '#exitButton'
+export const actualDates = '.table-search-results'
 
 //function to find future date
 
-export function dateConverter (delay){
+export function dateConverterMain (delay){
     const unformDate = dayjs().add(parseInt(delay), 'day');
     const formatedDate = unformDate.format('DD MMMM, YYYY');
-    console.log(formatedDate);
     return formatedDate
+}
+
+export function dateConverterResults (date){
+    const specificDate = dayjs(date)
+    const formatedDate = specificDate.format('YYYY-MM-DD');
+    return formatedDate 
 }
